@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Ascension</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">▲</span>
+    <span class="brand-name">Math <b>Ascension</b></span>
+  </div>
+
+  <nav class="topnav">
+    <button class="nav-btn active" data-screen="skilltree">Peta Skill</button>
+    <button class="nav-btn" data-screen="dashboard">Dashboard</button>
+    <button class="nav-btn" data-screen="shop">Toko</button>
+    <button class="nav-btn" data-screen="achievements">Lencana</button>
+  </nav>
+
+  <div class="stat-pills">
+    <div class="pill level-pill">
+      <span class="pill-icon">⚔</span>
+      <span>Lv <b id="hud-level">1</b></span>
+    </div>
+    <div class="pill xp-pill">
+      <span class="pill-icon">✦</span>
+      <div class="xp-track"><div class="xp-fill" id="hud-xp-fill"></div></div>
+      <span id="hud-xp-text">0/100</span>
+    </div>
+    <div class="pill coin-pill">
+      <span class="pill-icon">◆</span>
+      <span id="hud-coins">0</span>
+    </div>
+    <div class="pill streak-pill">
+      <span class="pill-icon">🔥</span>
+      <span id="hud-streak">0</span>
+    </div>
+  </div>
+</header>
+
+<main id="app-root">
+
+  <!-- ============ SKILL TREE SCREEN ============ -->
+  <section id="screen-skilltree" class="screen active-screen">
+    <div class="screen-head">
+      <h1>Peta Penguasaan Matematika</h1>
+      <p class="sub">Ikuti alurnya sesuai prasyarat. Node terkunci akan terbuka otomatis setelah kamu menguasai fondasinya.</p>
+    </div>
+    <div class="tree-wrap">
+      <svg id="tree-lines" class="tree-lines"></svg>
+      <div id="tree-canvas" class="tree-canvas"></div>
+    </div>
+  </section>
+
+  <!-- ============ MATERI DETAIL SCREEN ============ -->
+  <section id="screen-materi" class="screen">
+    <button class="back-btn" data-back="skilltree">← Kembali ke Peta</button>
+    <div id="materi-content"></div>
+  </section>
+
+  <!-- ============ QUIZ SCREEN ============ -->
+  <section id="screen-quiz" class="screen">
+    <div id="quiz-content"></div>
+  </section>
+
+  <!-- ============ QUIZ RESULT SCREEN ============ -->
+  <section id="screen-result" class="screen">
+    <div id="result-content"></div>
+  </section>
+
+  <!-- ============ DASHBOARD SCREEN ============ -->
+  <section id="screen-dashboard" class="screen">
+    <div class="screen-head">
+      <h1>Dashboard</h1>
+      <p class="sub">Progres belajarmu secara keseluruhan.</p>
+    </div>
+    <div id="dashboard-content"></div>
+  </section>
+
+  <!-- ============ SHOP SCREEN ============ -->
+  <section id="screen-shop" class="screen">
+    <div class="screen-head">
+      <h1>Toko Kosmetik</h1>
+      <p class="sub">Semua item hanya kosmetik — tidak memengaruhi gameplay. Coins hanya bisa didapat dari belajar.</p>
+    </div>
+    <div id="shop-content"></div>
+  </section>
+
+  <!-- ============ ACHIEVEMENTS SCREEN ============ -->
+  <section id="screen-achievements" class="screen">
+    <div class="screen-head">
+      <h1>Lencana Pencapaian</h1>
+      <p class="sub">Kumpulkan lencana dengan konsistensi belajar.</p>
+    </div>
+    <div id="achievements-content" class="ach-grid"></div>
+  </section>
+
+</main>
+
+<!-- ============ LOCK MODAL ============ -->
+<div id="lock-modal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-icon">🔒</div>
+    <h3 id="lock-title">Materi Terkunci</h3>
+    <p id="lock-message"></p>
+    <div class="modal-actions">
+      <button id="lock-goto-btn" class="btn btn-primary">Belajar Prasyarat</button>
+      <button id="lock-close-btn" class="btn btn-ghost">Tutup</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TOASTS / POPUPS ============ -->
+<div id="toast-layer"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
